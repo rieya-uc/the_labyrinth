@@ -1,0 +1,1 @@
+My solutions to the exercises from the book The C Programming Language by Kernighan and Ritchie.

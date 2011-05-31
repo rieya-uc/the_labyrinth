@@ -1,0 +1,85 @@
+Help:
+git help <verb>
+progit.org
+
+commit, modified, staged (waiting to be committed)
+untracked - not added to git repo
+tracked - files previously committed, but which have now been changed
+stated
+To set username:
+git config --global user.name "name"
+git config --global user.email email@something.com
+
+
+To view settings:
+git config --list
+
+Specific settings:
+git config (key)
+
+To get a copy of an existing repo:
+git clone [url] [new_directory_name]
+
+SETUP
+git init
+
+TRACKING
+To start tracking a file:
+git add <filename>
+nb - the point at which a file is added will be what is committed. if the file is changed after being added, these changes won't be committed. 
+***add just before committing***
+
+COMMIT
+To commit without going to vim
+git commit -m "commit message"
+
+To commit without having to stage (add)
+git commit -a
+(but *new* files must be added explicitly)
+
+STATUS
+To check status
+git status
+git diff           # how it's changed since last **added**, but not staged
+git diff --staged\--cached           # changes that are staged but not yet committed
+git log          # views commits made so far
+
+REMOVE
+To remove files:
+git rm <file>
+git rm <file> -f      # if it's been added already
+
+
+AMEND
+If you want to amend the last commit, e.g. if you messed up the commit message or forgot to add a file
+git commit --amend
+
+
+UNSTAGE
+git reset HEAD <file>
+
+
+REVERT
+To go back to the last commit^H^H^H ***staged***, i.e. to discard changes
+git checkout -- <file>
+
+IGNORE
+Ignore files:
+create a .gitignore file in the directory and list files you wish to ignore
+
+
+GITHUB STUFF (REMOTE)
+git remote -v     # see the remote servers you have
+git remote add [shortname] [url]    # to add a remote
+git fetch [remote-name]     # pulls data you don't have yet (but doesn't merge it)
+git pull    # fetch and merge a remote branch to your current branch
+git push 
+
+
+BRANCHING
+
+
+
+MIGHT COME IN USEFUL
+git reset --hard HEAD
+Tags
