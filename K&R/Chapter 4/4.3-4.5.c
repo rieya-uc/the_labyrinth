@@ -107,7 +107,6 @@ main()
 void push(double f)
 {
     if (sp < MAXVAL) {
-        //printf("push: %g\n",f);
         val[sp++] = f;
     }
     else
@@ -134,16 +133,11 @@ int getop(char s[])
         ;
     s[1] = '\0';
 
-    if (isalpha(c)) {       /* For exercise 4.5 */
-        i = 0;
-        while(isalpha(s[i++] = c))
-            c = getch();
-        s[i-1] = '\0';
-        if (c != EOF)
-            ungetch(c);
-        return COMMAND;
-    }
     i = 0;
+    if (isalpha(c))      /* For exercise 4.5 */
+        while(isalpha(s[++i] = c = getch()))
+            ;
+    //i = 0;
     if (!isdigit(c) && c != '.' && c != '-')
         return c;    /* not a number */
                      /* Ex 4.3 */   
@@ -169,7 +163,7 @@ int getop(char s[])
     return NUMBER;
 }
 
-int getch(void)     /* push character back on input */
+int getch(void)    
 {
     return (bufp > 0) ? buf[--bufp] : getchar();
 }
@@ -187,7 +181,7 @@ void printtop(void)
 {
     double t1;
 
-    if (sp != 0) {
+    if (sp == 0) {
         printf("error: no items on stack\n");
     }
     else {
@@ -198,11 +192,14 @@ void printtop(void)
 
 void duplicate(void)
 {
-    if (sp != 0) {
+    if (sp > 0) {
         double temp = pop();
         push(temp);
         push(temp);
+        printf("%g duplicated\n",temp);
     }
+    else
+        printf("error: no items on stack to duplicate\n");
 }
 
 void swap(void)
@@ -213,7 +210,10 @@ void swap(void)
 
         push(t1);
         push (t2);
+        printf("%g and %g swapped\n",t1,t2);
     }
+    else
+        printf("error: stack empty, cannot perform swap\n");
 }
 
 void clear(void)
