@@ -1,0 +1,4 @@
+Hello, I am a testfile.
+I am practically identical to that other "testfile".
+Except my name is testfile2.
+You should've spotted that already.
