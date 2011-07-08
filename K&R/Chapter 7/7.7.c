@@ -59,6 +59,8 @@ int main(int argc, char *argv[])
                 printf("> %s \n", line);
                 matched = 1;
             }
+
+            fclose(fp);
         }
 
         if (matched == 0)

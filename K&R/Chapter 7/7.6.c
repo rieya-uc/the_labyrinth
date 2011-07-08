@@ -34,7 +34,10 @@ int main(int argc, char *argv[])
         }
     } while (r1 != NULL && r2 != NULL);
 
+
     printf("Files match\n");
-    return 0;
-            
+
+    fclose(file1);
+    fclose(file2);
+    exit(0); 
 }
