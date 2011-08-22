@@ -26,7 +26,7 @@
 (define (average x y)
   (/ (+ x y) 2))
 
-(define (good-enough? guess x)
+(define (good-enough-old? guess x)
   (< (abs (- (square guess) x)) 0.001))
 
 (define (sqrt x)
@@ -43,9 +43,13 @@
 ;; improve guess can only do so much, and will never reach the 0.001 difference 
 ;; as specified in good-enough?.
 
-;; Here's a (good-enough?) that takes into consideration the size of x.
+;; Here's a (good-enough?) that checks whether the guess error value is within
+;; a certain percentage (rather than using an absolute value).
 
-(define (good-enough?? guess x)
-  ()
+(define (perc n x)
+  (* (/ n x) 100))
+
+(define (good-enough? guess x)
+  (< (perc (abs (- (square guess) x)) guess) 0.001))
 
 
