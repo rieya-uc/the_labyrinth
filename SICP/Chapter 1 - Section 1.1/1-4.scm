@@ -6,7 +6,7 @@
 (define (a-plus-abs-b a b)
   ((if (> b 0) + -) a b))
 
-;; Returns the value of the sum of a and the absolute value of b.
-;; If b is a negative number, instead of adding b to a, subtracts b 
-;; from a, which is the equivalent of taking its absolute value.
+Returns the value of the sum of a and the absolute value of b.
+If b is a negative number, instead of adding b to a, subtracts b 
+from a, which is the equivalent of taking its absolute value.
 

@@ -22,7 +22,7 @@
 ;; predicate expression is evaluated first, and the result determines 
 ;; whether to evaluate the consequent or the alternative expression.)
 
-;; Covered here: http://rieya.posterous.com/65726518
-;; test will never finish trying to evalute (p) using applicative-order 
-;; evaluation.
+Covered here: http://rieya.posterous.com/65726518
+test will never finish trying to evalute (p) using applicative-order 
+evaluation.
 

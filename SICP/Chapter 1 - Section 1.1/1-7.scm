@@ -32,19 +32,21 @@
 (define (sqrt x)
   (sqrt-iter 1.0 x))
 
-;; Let's have a look at what's happening with small numbers e.g (sqrt 0.0000001)
-;; (improve ... ) will keep improving the guess until the guess gets to 
-;; approximately 0.0625, after which good-enough will return true. However, as 
-;; 0.001 (from good-enough?) is so much bigger than 0.0000001, we are still quite 
-;; far from the true square root. We therefore need a value in good-enough? that's
-;; relative to the size of x.
 
-;; And for very large numbers, because computers use limited precision, 
-;; improve guess can only do so much, and will never reach the 0.001 difference 
-;; as specified in good-enough?.
+Let's have a look at what's happening with small numbers e.g (sqrt 0.0000001)
+(improve ... ) will keep improving the guess until the guess gets to 
+approximately 0.0625, after which good-enough will return true. However, as 
+0.001 (from good-enough?) is so much bigger than 0.0000001, we are still quite 
+far from the true square root. We therefore need a value in good-enough? that's
+relative to the size of x.
 
-;; Here's a (good-enough?) that checks whether the guess error value is within
-;; a certain percentage (rather than using an absolute value).
+And for very large numbers, because computers use limited precision, 
+improve guess can only do so much, and will never reach the 0.001 difference 
+as specified in good-enough?.
+
+Here's a (good-enough?) that checks whether the guess error value is within
+a certain percentage (rather than using an absolute value).
+
 
 (define (perc n x)
   (* (/ n x) 100))

@@ -27,5 +27,5 @@
 ;; Explain. 
 ;;
 
-;; It will forever try to impove guess...
+It will forever try to improve guess...
 
