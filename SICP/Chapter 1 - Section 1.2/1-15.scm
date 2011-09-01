@@ -39,5 +39,11 @@ a.
 
 
 b.
- We stop calling p when angle is less than 0.1, which means to find
- out how many times
+ We stop calling p when angle is less than 0.1, which means that to find
+ out how many times p is called we need to work out how many times angle (a)
+ divided by to get 0.1 (or less).
+ 0.1 = (((a / 3) / 3) ... / 3) = a / (3*3*3*3...*3)
+     = a / 3^n
+	 where n is the number of times p is called.
+ 0.1*(3^n) = a
+ Therefore by log rules, n = log(a)
