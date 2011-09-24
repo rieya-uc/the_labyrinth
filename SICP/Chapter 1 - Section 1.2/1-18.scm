@@ -14,7 +14,7 @@
 
 ;; iterative version
 (define (fast-* a b)
-  (fast-*-h a b 0))
+  (fast-*-h a b a))
 
 (define (fast-*-h a b x)
   (cond ((= b 0) x)
