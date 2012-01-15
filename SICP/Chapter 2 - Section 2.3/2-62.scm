@@ -11,7 +11,7 @@
         ((> (car set1) (car set2))
          (cons (car set2) (union-set (cdr set1) (cdr set2))))
         (else
-         (union-set set1 (cdr set2)))))
+         (cons (car set1) (union-set (cdr set1) set2)))))
 
 
 (define (adjoin-set x set)
