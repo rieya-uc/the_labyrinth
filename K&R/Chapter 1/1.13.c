@@ -16,7 +16,7 @@ main()
     int ndigit[MAXLEN];
 
     nother = 0;
-    for (i = 0; i < 10; ++i)
+    for (i = 0; i < MAXLEN; ++i)
         ndigit[i] = 0;
 
     while ((c = getchar()) != EOF && nother < MAXLEN-1)
