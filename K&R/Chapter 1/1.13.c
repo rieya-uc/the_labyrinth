@@ -8,28 +8,31 @@
  */
 
 #include <stdio.h>
-
+#define MAXLEN 10
 
 main()
 {
-    int c, i, j, nwhite, nother;
-    int ndigit[10];
+    int c, i, j, nother;
+    int ndigit[MAXLEN];
 
-    nwhite = nother = 0;
+    nother = 0;
     for (i = 0; i < 10; ++i)
         ndigit[i] = 0;
 
-    while ((c = getchar()) != EOF) {
-        if (c >= '0' && c <= '9')
-            ++ndigit[c-'0'];
-        else if (c == ' ' || c == '\n' || c == '\t')
-            ++nwhite;
-        else
+    while ((c = getchar()) != EOF && nother < MAXLEN-1)
+    {
+        if(c == ' ' || c == '\t' || c == '\n')
+        {
             ++nother;
+        }
+        else
+        {
+            ++ndigit[nother];
+        }
     }
     
     // horizontal histogram
-    for (i = 0; i < 10; ++i) {
+    for (i = 0; i < nother; ++i) {
         printf(" %d  ", i);
         for (j = 0; j < ndigit[i]; ++j)
             printf("*");
@@ -38,27 +41,31 @@ main()
 
     // vertical histogram
     int max = 0;        // largest ndigit count
-    for (i = 0; i < 10; ++i) {
+    for (i = 0; i < 10; ++i)
+    {
         if (ndigit[i] > max)
             max = ndigit[i];
     }
 
     printf("\n\n");
 
-    for (i = max; i > 0; --i) {         // Can I use --i here if it's not been
-        printf(" ");                    // introduced in the book?
-        for (j = 0; j < 10; ++j) {     
-            if (ndigit[j] >= i)
-                printf("*  ");
+    for (i = max; i > 0; --i)
+    {
+        max=i;
+
+        for (j = 0; j < nother; ++j)
+        {
+            if (max>ndigit[j])
+                printf(" ");
             else
-                printf("   ");
+                printf("*");
         }
         printf("\n");
     }
 
-    for (i = 0; i < 10; ++i) {
-        printf(" %d ", i);
+    for (i = 0; i < nother; ++i) {
+        printf("%d", i);
     }
-    
+    printf("\n");
 }
             
